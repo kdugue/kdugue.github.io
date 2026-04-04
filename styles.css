@@ -50,6 +50,25 @@ body.home-section-1 {
   padding: 2rem 1.5rem;
 }
 
+/* Unlisted page (not linked from site nav) */
+body.indira-page.home-section-1 {
+  text-align: center;
+}
+
+.love-note {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-size: clamp(1.2rem, 3.5vw, 1.45rem);
+  line-height: 1.65;
+  font-weight: 300;
+  color: #4472a8;
+}
+
+.love-note p {
+  margin: 0;
+}
+
 .header {
   margin: 0 0 1.25rem;
   font-size: clamp(2rem, 6vw, 2.75rem);

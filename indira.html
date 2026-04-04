@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Indira</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="home-section-1 indira-page">
+    <div class="love-note">
+      <p id="love-message"></p>
+    </div>
+    <script>
+      (function () {
+        var messages = [
+          "💼❤️ I love you and have a good day at work.",
+          "⚾💕 I love you. Knock today out of the park—you’ve got this.",
+          "💭✨ Thinking of you. Have a beautiful day at work, my love.",
+          "🌟💖 You’re amazing. I love you—wishing you a calm, good day at work.",
+          "😘☕ I love you so much. Have a great day at work, sweetheart.",
+          "💡💛 Just a reminder: I love you. Go shine at work today.",
+          "🌊🫶 I love you. May your day at work be smooth and kind to you.",
+          "🏆❤️ Proud of you always. I love you—have a good one at work.",
+          "💌🌸 Sending you all my love. Have a wonderful day at work.",
+          "♾️💗 I love you endlessly. Hope work treats you gently today.",
+          "🥇💕 You’re my favorite person. I love you—have a good day at work.",
+          "😌😊 I love you. Breathe, smile, and have a great day at work.",
+          "💝✨ Heart full of you today. I love you—good day at work, love.",
+          "🎤💪 I love you. Can’t wait to hear about your day—go get ’em.",
+          "🎁💖 Every day with you is a gift. I love you—have a good day at work.",
+        ];
+        var el = document.getElementById("love-message");
+        if (el) {
+          el.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+      })();
+    </script>
+  </body>
+</html>
