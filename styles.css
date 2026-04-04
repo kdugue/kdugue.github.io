@@ -1,0 +1,342 @@
+/* --- Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 300;
+  color: #4472a8;
+  background: #ffffff;
+}
+
+body:not(.home-section-1) {
+  padding-bottom: 3rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* --- Home: centered block --- */
+body.home-section-1 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-section-1 > div {
+  padding: 2rem 1.5rem;
+}
+
+.header {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* --- Site header + nav (inner pages + home list) --- */
+.section-1 {
+  text-align: center;
+  padding: 2.5rem 1.5rem 0;
+}
+
+.section-1 .header {
+  margin-bottom: 0;
+}
+
+/* Wrapper: center the ul; ul carries the horizontal flex nav */
+div.section-2 {
+  text-align: center;
+  margin: 0 0 2rem;
+  padding: 0 1.5rem;
+}
+
+ul.section-2 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+ul.section-2 > li {
+  list-style: none;
+}
+
+ul.section-2 a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* --- Projects (Work) --- */
+.projects-info {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.company-title {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #4472a8;
+  font-style: italic;
+}
+
+.company-title:first-child {
+  margin-top: 0;
+}
+
+.project-description {
+  margin-bottom: 2.5rem;
+}
+
+.project-description .project-description {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+}
+
+.project-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
+.project-title u {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 1.25rem 2rem;
+  align-items: start;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-title-and-photo {
+  min-width: 0;
+}
+
+.project-title-and-photo a {
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.project-title-and-photo img {
+  width: 100%;
+  display: block;
+}
+
+.project-detailed-description p {
+  margin: 0 0 1rem;
+}
+
+.project-detailed-description p:last-child {
+  margin-bottom: 0;
+}
+
+.project-detailed-description a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* --- Talks --- */
+.writing-info {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.writing-info h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
+.writing-info h2 u {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.writing-info p {
+  margin: 0 0 1.15rem;
+}
+
+.writing-info a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* --- About --- */
+.about-more-info-section {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.about-more-info-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
+.about-more-info-section h2 u {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.about-more-info-section > div:first-child p {
+  margin: 0 0 1rem;
+}
+
+.about-more-info-section > div:first-child p:last-child {
+  margin-bottom: 0;
+}
+
+.about-more-info-section a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.about-me-links {
+  margin-top: 2.5rem;
+}
+
+.about-me-links h2 {
+  margin-bottom: 0.75rem;
+}
+
+.about-me-links span {
+  display: inline-block;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-me-links span:last-child {
+  margin-right: 0;
+}
+
+/* --- Legacy inner-page helpers (unused by current markup) --- */
+body.page {
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.page-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-header .header {
+  margin-bottom: 1rem;
+}
+
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.page-nav a[aria-current="page"] {
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-content {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.page-content h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
+.page-content h2:first-child {
+  margin-top: 0;
+}
+
+.page-content p {
+  margin: 0 0 1rem;
+}
+
+.page-content ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.page-content li {
+  margin-bottom: 0.35rem;
+}
+
+.page-content a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
