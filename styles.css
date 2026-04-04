@@ -167,6 +167,10 @@ ul.section-2 a[aria-current="page"] {
   margin-top: 0.5rem;
 }
 
+.project-container > .project-detailed-description:only-child {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 700px) {
   .project-container {
     grid-template-columns: 1fr;
