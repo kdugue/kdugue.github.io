@@ -6,7 +6,7 @@ Personal site (GitHub Pages).
 
 ## Local preview
 
-This site uses **directory URLs** (e.g. `/talks/`, `/projects/`). Browsers do not treat those like a real server when you open HTML files with **`file://`**—links may show a folder listing instead of the page.
+This site uses **directory URLs** (e.g. `/talks/`, `/work/`). Browsers do not treat those like a real server when you open HTML files with **`file://`**—links may show a folder listing instead of the page.
 
 Run a small HTTP server from the repo root, then open **`http://localhost:8000/`**:
 
