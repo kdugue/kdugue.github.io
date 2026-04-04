@@ -116,8 +116,8 @@ ul.section-2 a[aria-current="page"] {
   text-underline-offset: 0.2em;
 }
 
-/* --- Projects (Work) --- */
-.projects-info {
+/* Inner pages: shared content column (Work, Talks, About) */
+.page-content {
   max-width: 52rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -126,6 +126,7 @@ ul.section-2 a[aria-current="page"] {
   color: #3a5f8f;
 }
 
+/* --- Projects (Work) --- */
 .company-title {
   margin: 2.5rem 0 1rem;
   font-size: 1.2rem;
@@ -207,15 +208,6 @@ ul.section-2 a[aria-current="page"] {
 }
 
 /* --- Talks --- */
-.writing-info {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: #3a5f8f;
-}
-
 .writing-info h2 {
   margin: 0 0 1.25rem;
   font-size: 1.2rem;
@@ -238,15 +230,6 @@ ul.section-2 a[aria-current="page"] {
 }
 
 /* --- About --- */
-.about-more-info-section {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: #3a5f8f;
-}
-
 .about-more-info-section h2 {
   margin: 0 0 1rem;
   font-size: 1.2rem;
