@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Solutions — Writings — Kemet Dugue</title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="section-1">
+      <h1 class="header"><a href="../../">Kemet Dugue</a></h1>
+    </div>
+
+    <div class="section-2">
+      <ul class="section-2">
+        <li><a href="../../work/">Work</a></li>
+        <li><a href="../../talks/">Talks</a></li>
+        <li><a href="../">Writings</a></li>
+        <li><a href="../../about/">About</a></li>
+      </ul>
+    </div>
+
+    <article class="page-content writing-info post-article">
+      <p class="post-kicker"><a href="../">Writings</a></p>
+      <h1 class="post-title">Simple Solutions</h1>
+      <p class="post-meta">October 7th, 2023</p>
+      <p class="post-tags">
+        <a href="../tags/#life" class="tag-pill">life</a>
+        <a href="../tags/#simplicity" class="tag-pill">simplicity</a>
+        <a href="../tags/#tools" class="tag-pill">tools</a>
+      </p>
+
+      <div class="post-body">
+        <p>
+          Indira runs a private tattoo studio, where she handles marketing,
+          email communications, operations, customer service. Occasionally, I'll
+          help out with the finances and strategy.
+        </p>
+
+        <p>
+          Recently, she was lamenting over her client email communication
+          process. Specifically, after prospective clients have expressed
+          interest in scheduling an initial consultation with her via a form on
+          her website, she'll receive an email with information including
+          potential tattoo ideas.
+        </p>
+
+        <p>
+          She'll then respond to each email individually, where she sends them a
+          Calendly link so they can schedule a 10 minute consultation with her.
+        </p>
+
+        <p>
+          Naturally, as a software developer and intimate partner, I found
+          myself in problem-solving mode. I quickly think of a software-based
+          approach: a script that, utilizing the
+          <a href="https://developers.google.com/gmail/api/guides">Gmail API</a
+          >, reads her email (in a specified folder), and sends the Calendly
+          link to all recipients.
+        </p>
+
+        <p>I excitedly tell her this.</p>
+
+        <p>"How do I run the script?", she asks</p>
+
+        <p>
+          In order for her to run the script, she'll have to have a Terminal and
+          node installed her computer.
+        </p>
+
+        <p>"Well, we'd had to install some software on your computer." I say</p>
+
+        <p>She shy's away from this.</p>
+
+        <p>
+          As I begin to think of ways to easily have the script run on her
+          computer, I come to a realization: certainly, Squarespace, the website
+          provider she uses, has some sort of post-action mechanism that allows
+          for sending an email after form submission.
+        </p>
+
+        <p>
+          I look into the Squarespace docs and find out that's not actually
+          achievable. I try to see if there's a way to custom edit the HTML code
+          in order to have this configured. That's not possible either.
+        </p>
+
+        <p>
+          I do see another option, and that is a way to redirect users
+          post-submission to a website.
+        </p>
+
+        <p>I let Indira know this, and we implement the solution.</p>
+
+        <p>Not everything needs to be a software solution.</p>
+      </div>
+    </article>
+  </body>
+</html>

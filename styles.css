@@ -278,3 +278,153 @@ ul.section-2 a[aria-current='page'] {
 .about-me-links span:last-child {
   margin-right: 0;
 }
+
+/* --- Writings (static pages) --- */
+.writings-tags-page .writings-lede {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.writings-tags-page .writings-lede a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.writings-index .writings-browse-tags {
+  margin: 2rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.writings-index .writings-browse-tags a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.writings-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.writings-item {
+  margin: 0 0 1.35rem;
+  padding: 0;
+  line-height: 1.55;
+}
+
+.writings-item-title {
+  display: inline;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.writings-item-date {
+  margin-left: 0.5rem;
+  font-size: 0.95rem;
+  color: #5a7aa3;
+  white-space: nowrap;
+}
+
+.writings-item-tags {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  margin: 0 0.4rem 0.25rem 0;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.88rem;
+  border: 1px solid #8fa8c9;
+  border-radius: 4px;
+  text-decoration: none !important;
+}
+
+.tag-pill:hover {
+  background: rgba(68, 114, 168, 0.08);
+  text-decoration: none !important;
+}
+
+.post-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.post-kicker a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.post-article .post-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: #4472a8;
+  line-height: 1.25;
+}
+
+.post-meta {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #5a7aa3;
+}
+
+.post-tags {
+  margin: 0 0 1.5rem;
+}
+
+.post-body {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a5f8f;
+}
+
+.post-body p {
+  margin: 0 0 1rem;
+}
+
+.post-body p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.post-body hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid #c5d4e8;
+}
+
+.tag-section {
+  margin: 0 0 2rem;
+}
+
+.tag-heading {
+  margin: 0 0 0.65rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
+.tag-post-list {
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  color: #3a5f8f;
+}
+
+.tag-post-list li {
+  margin-bottom: 0.5rem;
+}
+
+.tag-post-list a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
