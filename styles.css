@@ -139,6 +139,7 @@ ul.section-2 a[aria-current='page'] {
   font-weight: 400;
   color: #4472a8;
   font-style: italic;
+  text-align: center;
 }
 
 .company-title:first-child {
