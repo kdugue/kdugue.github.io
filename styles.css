@@ -201,6 +201,19 @@ ul.section-2 a[aria-current='page'] {
   display: block;
 }
 
+.project-title-and-photo a.project-image-frame {
+  width: 100%;
+  height: clamp(170px, 24vw, 220px);
+}
+
+.project-title-and-photo img.project-image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+}
+
 .project-detailed-description p {
   margin: 0 0 1rem;
 }
