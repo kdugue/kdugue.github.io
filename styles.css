@@ -46,13 +46,15 @@ img {
 /* --- Home: centered block --- */
 body.home-section-1 {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   text-align: center;
 }
 
 .home-section-1 > div {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
@@ -101,7 +103,7 @@ div.section-2 {
 }
 
 ul.section-2 {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
