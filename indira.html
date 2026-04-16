@@ -24,7 +24,8 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
       }
-      .spinner-flag {
+      .spinner-ring.hidden { opacity: 0; }
+      .spinner-center {
         position: absolute;
         inset: 0;
         display: flex;
@@ -32,6 +33,10 @@
         justify-content: center;
         font-size: 4rem;
         line-height: 1;
+        transition: transform 0.3s ease;
+      }
+      .spinner-center.pop {
+        transform: scale(1.25);
       }
       @keyframes spin {
         to { transform: rotate(360deg); }
@@ -41,8 +46,32 @@
 
   <body class="home-section-1 indira-page">
     <div class="spinner-wrapper">
-      <div class="spinner-ring"></div>
-      <div class="spinner-flag">🇰🇿</div>
+      <div class="spinner-ring" id="ring"></div>
+      <div class="spinner-center" id="center">🇰🇿</div>
     </div>
+    <script>
+      (function () {
+        var fruits = [
+          '🍎','🍊','🍋','🍌','🍉','🍇','🍓','🫐','🍑','🍒',
+          '🥝','🍍','🥭','🍐','🥥','🍈','🪴','🌽','🥑','🍅'
+        ];
+        var ring = document.getElementById('ring');
+        var center = document.getElementById('center');
+
+        function showFruit() {
+          ring.classList.add('hidden');
+          center.textContent = fruits[Math.floor(Math.random() * fruits.length)];
+          center.classList.add('pop');
+
+          setTimeout(function () {
+            center.classList.remove('pop');
+            center.textContent = '🇰🇿';
+            ring.classList.remove('hidden');
+          }, 2000);
+        }
+
+        setInterval(showFruit, 10000);
+      })();
+    </script>
   </body>
 </html>
