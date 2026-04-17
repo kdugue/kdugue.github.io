@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,287 +10,34 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
       rel="stylesheet"
     />
-    <style>
-      .loader-area {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.75rem;
-        transition: opacity 0.5s ease;
-      }
-
-      .spinner-wrapper {
-        position: relative;
-        width: 10rem;
-        height: 10rem;
-      }
-      .spinner-ring {
-        position: absolute;
-        inset: 0;
-        border: 4px solid rgba(68, 114, 168, 0.15);
-        border-top-color: #4472a8;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      .spinner-center {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4rem;
-        line-height: 1;
-        transition: transform 0.3s ease;
-      }
-      .spinner-center.clickable {
-        cursor: pointer;
-        animation: pulse-glow 1.5s ease-in-out infinite;
-      }
-      .spinner-ring.hidden {
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes pulse-glow {
-        0%,
-        100% {
-          filter: drop-shadow(0 0 0 transparent);
-          transform: scale(1);
-        }
-        50% {
-          filter: drop-shadow(0 0 18px rgba(68, 114, 168, 0.45));
-          transform: scale(1.1);
-        }
-      }
-
-      .progress-track {
-        width: 16rem;
-        height: 2rem;
-        background: rgba(68, 114, 168, 0.1);
-        border-radius: 1rem;
-        overflow: hidden;
-        position: relative;
-      }
-      .progress-fill {
-        height: 100%;
-        width: 0%;
-        background: rgba(68, 114, 168, 0.18);
-        border-radius: 1rem;
-        transition: width 0.4s ease;
-      }
-      .progress-fruits {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        padding: 0 0.35rem;
-        gap: 0;
-        font-size: 1.15rem;
-        line-height: 1;
-      }
-      .progress-fruits span {
-        opacity: 0;
-        transform: scale(0);
-        transition:
-          opacity 0.3s ease,
-          transform 0.3s ease;
-        flex: 1;
-        text-align: center;
-      }
-      .progress-fruits span.shown {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      .message-overlay {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.6s ease;
-      }
-      .message-overlay.visible {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .message-content {
-        max-width: 26rem;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-        line-height: 1.7;
-        font-weight: 300;
-        color: #4472a8;
-        transform: translateY(1.5rem);
-        transition: transform 0.6s ease;
-      }
-      .message-overlay.visible .message-content {
-        transform: translateY(0);
-      }
-      .message-content p {
-        margin: 0 0 1.25rem;
-      }
-      .message-content p:last-child {
-        margin-bottom: 0;
-      }
-
-      .wait-message {
-        max-width: 24rem;
-        padding: 2rem 1.5rem;
-        text-align: center;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-        line-height: 1.7;
-        font-weight: 300;
-        color: #4472a8;
-      }
-      .wait-message p {
-        margin: 0 0 1.25rem;
-      }
-      .wait-message p:last-child {
-        margin-bottom: 0;
-      }
-    </style>
   </head>
 
   <body class="home-section-1 indira-page">
-    <div class="wait-message" id="waitMessage" style="display: none">
-      <p style="font-size: 3rem">⏳</p>
-      <p>Something is on its way. Come back at 12:00 PM.</p>
+    <div class="love-note">
+      <p id="love-message"></p>
     </div>
-
-    <div class="loader-area" id="loaderArea" style="display: none">
-      <div class="spinner-wrapper">
-        <div class="spinner-ring" id="ring"></div>
-        <div class="spinner-center" id="center">🇰🇿</div>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill"></div>
-        <div class="progress-fruits" id="progressFruits"></div>
-      </div>
-    </div>
-
-    <div class="message-overlay" id="messageOverlay">
-      <div class="message-content">
-        <p style="font-size: 3rem">💌</p>
-
-        <p>
-          I wanted you to have a little treat before work — there's something
-          waiting for you to pick up at Épicerie, 2307 Hancock Dr.
-        </p>
-        <p>
-          Fun Fact: April 15th is 
-          <a
-            href="https://timesca.com/kozy-korpesh-bayan-sulu-kazakhstans-valentines-day/"
-            target="_blank"
-            style="text-decoration: underline; text-underline-offset: 0.15em"
-            >Valentine's Day in Kazakhstan</a
-          >
-        </p>
-        <p>I love you.</p>
-      </div>
-    </div>
-
     <script>
       (function () {
-        var austinNow = new Date(
-          new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' }),
-        );
-        var hour = austinNow.getHours();
-
-        if (hour < 12) {
-          document.getElementById('waitMessage').style.display = '';
-
-          var noon = new Date(austinNow);
-          noon.setHours(12, 0, 0, 0);
-          var msUntilNoon = noon - austinNow;
-          setTimeout(function () {
-            location.reload();
-          }, msUntilNoon);
-          return;
-        }
-
-        document.getElementById('loaderArea').style.display = '';
-
-        var allFruits = [
-          '🍎',
-          '🍊',
-          '🍋',
-          '🍌',
-          '🍉',
-          '🍇',
-          '🍓',
-          '🫐',
-          '🍑',
-          '🍒',
-          '🥝',
-          '🍍',
-          '🥭',
-          '🍐',
-          '🥥',
-          '🍈',
-          '🫒',
-          '🍅',
-          '🥑',
-          '🍏',
+        var messages = [
+          "💼❤️ I love you and have a good day at work.",
+          "⚾💕 I love you. Knock today out of the park—you’ve got this.",
+          "💭✨ Thinking of you. Have a beautiful day at work, my love.",
+          "🌟💖 You’re amazing. I love you—wishing you a calm, good day at work.",
+          "😘☕ I love you so much. Have a great day at work, sweetheart.",
+          "💡💛 Just a reminder: I love you. Go shine at work today.",
+          "🌊🫶 I love you. May your day at work be smooth and kind to you.",
+          "🏆❤️ Proud of you always. I love you—have a good one at work.",
+          "💌🌸 Sending you all my love. Have a wonderful day at work.",
+          "♾️💗 I love you endlessly. Hope work treats you gently today.",
+          "🥇💕 You’re my favorite person. I love you—have a good day at work.",
+          "😌😊 I love you. Breathe, smile, and have a great day at work.",
+          "💝✨ Heart full of you today. I love you—good day at work, love.",
+          "🎤💪 I love you. Can’t wait to hear about your day—go get ’em.",
+          "🎁💖 Every day with you is a gift. I love you—have a good day at work.",
         ];
-        var fruits = [];
-        var pool = allFruits.slice();
-        for (var i = 0; i < 10; i++) {
-          var idx = Math.floor(Math.random() * pool.length);
-          fruits.push(pool.splice(idx, 1)[0]);
-        }
-
-        var progressFruits = document.getElementById('progressFruits');
-        var progressFill = document.getElementById('progressFill');
-        var loaderArea = document.getElementById('loaderArea');
-        var center = document.getElementById('center');
-        var ring = document.getElementById('ring');
-        var overlay = document.getElementById('messageOverlay');
-
-        for (var i = 0; i < 10; i++) {
-          var s = document.createElement('span');
-          s.textContent = fruits[i];
-          progressFruits.appendChild(s);
-        }
-        var fruitSpans = progressFruits.children;
-
-        var tick = 0;
-        var interval = setInterval(function () {
-          tick++;
-          progressFill.style.width = tick * 10 + '%';
-          fruitSpans[tick - 1].classList.add('shown');
-
-          if (tick >= 10) {
-            clearInterval(interval);
-            setTimeout(showLetter, 500);
-          }
-        }, 1000);
-
-        function revealMessage() {
-          if (overlay.classList.contains('visible')) return;
-          loaderArea.style.opacity = '0';
-          setTimeout(function () {
-            overlay.classList.add('visible');
-          }, 400);
-        }
-
-        function showLetter() {
-          ring.classList.add('hidden');
-          center.textContent = '💌';
-          center.classList.add('clickable');
-
-          center.addEventListener('click', revealMessage);
-          setTimeout(revealMessage, 3000);
+        var el = document.getElementById("love-message");
+        if (el) {
+          el.textContent = messages[Math.floor(Math.random() * messages.length)];
         }
       })();
     </script>
