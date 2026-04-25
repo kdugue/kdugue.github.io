@@ -413,6 +413,13 @@ ul.section-2 a[aria-current='page'] {
   text-underline-offset: 0.15em;
 }
 
+.post-body h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #4472a8;
+}
+
 .post-body hr {
   margin: 1.5rem 0;
   border: none;
