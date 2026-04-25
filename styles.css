@@ -121,7 +121,9 @@ ul.section-2 > li {
 
 ul.section-2 a[aria-current='page'] {
   text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-decoration-color: rgba(68, 114, 168, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
 }
 
 /* Inner pages: shared content column (Work, Talks, About) */
@@ -261,7 +263,9 @@ ul.section-2 a[aria-current='page'] {
 
 .about-more-info-section h2 u {
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-decoration-color: rgba(68, 114, 168, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 .about-more-info-section > div:first-child p {
@@ -274,7 +278,9 @@ ul.section-2 a[aria-current='page'] {
 
 .about-more-info-section a {
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-decoration-color: rgba(68, 114, 168, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 .about-me-links {
