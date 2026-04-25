@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Scaling AI Development with Git Worktrees — Writings — Kemet Dugue
+    </title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="section-1">
+      <h1 class="header"><a href="../../">Kemet Dugue</a></h1>
+    </div>
+
+    <article class="page-content writing-info post-article">
+      <p class="post-kicker"><a href="../">&larr; Writings</a></p>
+      <h1 class="post-title">Scaling AI Development with Git Worktrees</h1>
+      <p class="post-meta">April 25th, 2026</p>
+      <p class="post-tags">
+        <a href="../tags/#agents" class="tag-pill">agents</a>
+        <a href="../tags/#ai" class="tag-pill">ai</a>
+      </p>
+
+      <div class="post-body">
+        <p>
+          Since transitioning to agent-based development, I&rsquo;ve found
+          myself wanting to extend my development workflow, especially with
+          using multiple agents. I noticed a bottleneck when using agent
+          workflows: If I had to work on multiple unrelated work items, I found
+          myself having to stash changes and create another branch, finish work
+          on that new branch, then come back to the original branch to finish my
+          initial changes.
+        </p>
+
+        <p>
+          I recently discovered git worktrees and found that this was a perfect
+          solution to my bottleneck.
+        </p>
+
+        <p>
+          At a conceptual level, git worktrees allow you to work on multiple
+          branches of the same repository in separate directories
+          simultaneously. In other words, you can work on different features or
+          subfeatures while keeping the state of those changes intact (without
+          needing to stash or make unmeaningful commits).
+        </p>
+
+        <hr />
+
+        <h3>A real use case</h3>
+
+        <p>
+          Here&rsquo;s a real use case of worktrees I did recently at work. I
+          was working on a feature adding in a button component to an existing
+          design. While working on that, data science requested updates for an
+          event&rsquo;s metadata.
+        </p>
+
+        <p>My typical workflow would include:</p>
+
+        <ol>
+          <li>
+            <p>
+              Stashing my current changes (or making an &lsquo;in
+              progress&rsquo; commit). Even in an agentic workflow, this is
+              basically asking the agent to undo its changes.
+            </p>
+            <pre><code>git stash save "work in progress button"</code></pre>
+          </li>
+          <li>
+            <p>
+              Create a new branch off main for the data change. Make those
+              changes, put up a diff.
+            </p>
+            <pre><code>git checkout main
+git checkout -b ds-metadata-update
+# ... make changes ...
+git commit -m "update metadata"
+git push</code></pre>
+          </li>
+          <li>
+            <p>
+              Come back to the branch for the button changes, revert back to my
+              current working state by popping the stash.
+            </p>
+            <pre><code>git checkout feature-button
+git stash pop</code></pre>
+          </li>
+          <li>
+            <p>Finish those changes and put up a second diff.</p>
+          </li>
+        </ol>
+
+        <p>With git worktrees, the workflow looks like this:</p>
+
+        <ol>
+          <li>
+            <p>Create a worktree for the metadata changes.</p>
+            <pre><code>git worktree add ../metadata-update ds-metadata-update</code></pre>
+          </li>
+          <li>
+            <p>Make those changes in the new directory and put up a diff.</p>
+            <pre><code>cd ../metadata-update
+# ... make changes ...
+git commit -m "update metadata"
+git push</code></pre>
+          </li>
+          <li>
+            <p>
+              Go back to my original changes, finish up the button and put up a
+              diff.
+            </p>
+            <pre><code>cd ../original-project-folder
+# continue working immediately</code></pre>
+          </li>
+        </ol>
+
+        <p>
+          In this new flow, I don&rsquo;t have to worry about stashing and
+          intentionally having to save my working state.
+        </p>
+
+        <hr />
+
+        <h3>Why this matters for Agents</h3>
+
+        <p>
+          In an agentic workflow, worktrees are even more powerful. It allows
+          for multiple agents to be working on different things since they can
+          work in their own separate directories.
+        </p>
+
+        <p>
+          Without worktrees, you&rsquo;re bottlenecked on making the change
+          since checking out to a new branch means you need to stop work on the
+          current branch. You wouldn&rsquo;t want an agent to do that because:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Context Management:</strong> Switching branches within the
+            same folder can quickly max out your context.
+          </li>
+          <li>
+            <strong>Separation of Concerns:</strong> There should be a physical
+            separation of concerns for agents to ensure they aren&rsquo;t
+            bleeding logic across unrelated tasks.
+          </li>
+        </ul>
+
+        <p>
+          By using worktrees, I&rsquo;ve found I can scale my development
+          alongside my agents. It allows for true parallel development,
+          risk-free experimentation in separate &ldquo;sandboxes,&rdquo; and the
+          ability to juggle multiple high-priority features without the overhead
+          of keeping track of my changes.
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

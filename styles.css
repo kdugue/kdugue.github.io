@@ -435,6 +435,7 @@ ul.section-2 a[aria-current='page'] {
 .post-body ul {
   margin: 0 0 1rem;
   padding-left: 1.5rem;
+  list-style-type: disc;
 }
 
 .post-body li {
