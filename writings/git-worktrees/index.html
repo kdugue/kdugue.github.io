@@ -36,24 +36,24 @@
         </p>
 
         <p>
-          Even though I had multiple agents available to help, I was limited
-          by being on the same branch in a single directory. If I needed one
-          agent to handle a task and another to handle a different task, I was
-          forced to stop one agent, stash its progress, and switch branches
-          just to let the second one start.
+          Even though I had multiple agents available to help, I was limited by
+          being on the same branch in a single directory. If I needed one agent
+          to handle a task and another to handle a different task, I was forced
+          to stop one agent, stash its progress, and switch branches just to let
+          the second one start.
         </p>
 
         <p>
-          I recently discovered git worktrees and found that this was a
-          perfect solution to my bottleneck.
+          I recently discovered git worktrees and found that this was a perfect
+          solution to my bottleneck.
         </p>
 
         <p>
           At a conceptual level, git worktrees allow you to work on multiple
           branches of the same repository in separate directories
-          simultaneously. In other words, you can work on different features
-          or subfeatures while keeping the state of those changes intact
-          (without needing to stash or make unmeaningful commits).
+          simultaneously. In other words, you can work on different features or
+          subfeatures while keeping the state of those changes intact (without
+          needing to stash or make unmeaningful commits).
         </p>
 
         <hr />
@@ -61,9 +61,9 @@
         <h3>A Real Use Case</h3>
 
         <p>
-          Recently, I was working on a feature adding a button component to
-          an existing design. While that agent was working, Data Science
-          requested updates for an event&rsquo;s metadata.
+          Recently, I was working on a feature adding a button component to an
+          existing design. While that agent was working, Data Science requested
+          updates for an event&rsquo;s metadata.
         </p>
 
         <p>My typical workflow would include:</p>
@@ -75,20 +75,20 @@
               workflow, this is basically asking the agent to undo its changes
               so I can clear the &ldquo;desk.&rdquo;
             </p>
-<pre><code>git stash save "work in progress button"</code></pre>
+            <pre><code>git stash save "work in progress button"</code></pre>
           </li>
           <li>
             <p>
-              <strong>Creating a new branch:</strong> I&rsquo;d have to move
-              the entire environment to a new branch for the metadata change.
+              <strong>Creating a new branch:</strong> I&rsquo;d have to move the
+              entire environment to a new branch for the metadata change.
             </p>
           </li>
           <li>
             <p>
               <strong>Switching back:</strong> Once the metadata was done,
               I&rsquo;d have to revert the environment and pop the stash,
-              forcing the first agent to re-index and &ldquo;remember&rdquo;
-              its state.
+              forcing the first agent to re-index and &ldquo;remember&rdquo; its
+              state.
             </p>
           </li>
         </ol>
@@ -101,7 +101,7 @@
               <strong>Create a separate worktree:</strong> I spin up a new
               directory for the metadata task.
             </p>
-<pre><code>git worktree add ../metadata-update ds-metadata-update</code></pre>
+            <pre><code>git worktree add ../metadata-update ds-metadata-update</code></pre>
           </li>
           <li>
             <p>
@@ -112,9 +112,8 @@
           </li>
           <li>
             <p>
-              <strong>Zero Downtime:</strong> Both agents finish their work
-              in parallel. I never had to tell an agent to stop or save its
-              state.
+              <strong>Zero Downtime:</strong> Both agents finish their work in
+              parallel. I never had to tell an agent to stop or save its state.
             </p>
           </li>
         </ol>
@@ -125,8 +124,8 @@
 
         <p>
           Worktrees are a force multiplier for agentic workflows because they
-          solve the physical bottleneck of the directory. Without them, you
-          are capped at the speed of a single branch.
+          solve the physical bottleneck of the directory. Without them, you are
+          capped at the speed of a single branch.
         </p>
 
         <ul>
@@ -138,16 +137,16 @@
           <li>
             <strong>Separation of Concerns:</strong> Worktrees allow for a
             physical separation of concerns. Each agent gets its own
-            &ldquo;sandbox&rdquo; where its local build artifacts and
-            terminal state remain isolated.
+            &ldquo;sandbox&rdquo; where its local build artifacts and terminal
+            state remain isolated.
           </li>
         </ul>
 
         <p>
-          By using worktrees, I can finally align my local environment with
-          the parallel nature of AI development. It allows for true scaling,
-          risk-free experimentation, and the ability to juggle multiple
-          features without the mental overhead of stashing.
+          By using worktrees, I can finally align my local environment with the
+          parallel nature of AI development. It allows for true scaling,
+          risk-free experimentation, and the ability to juggle multiple features
+          without the mental overhead of stashing.
         </p>
       </div>
     </article>
