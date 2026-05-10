@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Architecting Agentic Workflows: Increasing Developer Efficiency through
+      AI-Driven Workflows &mdash; Writings &mdash; Kemet Dugue
+    </title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="section-1">
+      <h1 class="header"><a href="../../">Kemet Dugue</a></h1>
+    </div>
+
+    <article class="page-content writing-info post-article">
+      <p class="post-kicker"><a href="../">&larr; Writings</a></p>
+      <h1 class="post-title">
+        Architecting Agentic Workflows: Increasing Developer Efficiency through
+        AI-Driven Workflows
+      </h1>
+      <p class="post-meta">
+        April 30th, 2026 · <em>Updated</em> May 10th, 2026
+      </p>
+      <p class="post-tags">
+        <a href="../tags/#agents" class="tag-pill">agents</a>
+        <a href="../tags/#ai" class="tag-pill">ai</a>
+      </p>
+
+      <div class="post-body">
+        <p>
+          In the past few months, I&rsquo;ve integrated my team&rsquo;s
+          processes into AI-driven workflows, moving from manual or error-prone
+          script-heavy tasks to autonomous execution. Here are the core
+          workflows driving the team&rsquo;s efficiency.
+        </p>
+
+        <h3>Parallelized Development via Automated Worktrees</h3>
+
+        <p>
+          After scaling my own
+          <a href="../git-worktrees/">development with worktrees</a>, I sought
+          to eliminate many of the errors I ran into while manually working with
+          worktrees (e.g., manual configuration errors and branch mismatches). I
+          <a href="https://cursor.com/docs/skills">built a custom Skill</a> that
+          automates worktree setup via a <code>/worktree</code> command,
+          enabling simultaneous multi-branch development while using sparse
+          checkout logic to navigate and isolate our specific service within a
+          2,200+ service monorepo.
+        </p>
+
+        <h3>Branch-to-Diff Agentic Pipeline</h3>
+
+        <p>
+          Our team follows a strict process: branch, change, commit, and diff.
+          Diffs must follow a specific template or the CI build fails. I created
+          a rule that handles this entire lifecycle. It generates the branch,
+          stages changes, and builds the diff using the approved template. It
+          auto-generates high-level titles and context-rich descriptions,
+          reducing the cognitive load on developers and avoiding the overly
+          verbose recommendations usually seen in standard AI models.
+        </p>
+
+        <h3>Automated JIRA Ticket Management</h3>
+
+        <p>
+          To reduce the time spent in JIRA, I created a rule that manages the
+          ticket lifecycle via the JIRA REST API. This agent handles the tedious
+          parts of project management:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Auth &amp; Creation:</strong> Authenticates via Uber&rsquo;s
+            internal system to read and create tickets.
+          </li>
+          <li>
+            <strong>Transitions:</strong> Autonomously moves tickets (Close,
+            Reopen, Move to Review).
+          </li>
+          <li>
+            <strong>Context:</strong> Fetches similar JIRA tickets to help find
+            related historical context.
+          </li>
+        </ul>
+
+        <h3>Synchronized and Updated Documentation</h3>
+
+        <p>
+          Documentation quickly gets stale; for example, our testing practices
+          haven&rsquo;t been updated since 2023. I built a rule to synchronize
+          our Confluence &ldquo;EngWiki&rdquo; with our codebase. This ensures a
+          single source of truth that stays updated as the code changes. Both
+          developers and agents can now rely on current patterns, helping agents
+          generate the right code on the first try.
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
