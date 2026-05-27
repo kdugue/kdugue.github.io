@@ -1,0 +1,45 @@
+---
+description: Keep git commit messages short in this repo
+alwaysApply: true
+---
+
+# Commit messages
+
+Use short, single-line commit messages. Match the repo's existing style.
+
+## Format
+
+- One subject line only — no body paragraph
+- Imperative mood, lowercase or sentence case (e.g. `update agentic workflows post date`)
+- Aim for ~72 characters or less
+- Append the Cursor co-author trailer on its own line:
+
+```
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+## Examples
+
+```
+update agentic workflows post date
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+```
+add google analytics to homepage
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+## Avoid
+
+```
+Add Google Analytics to the homepage.
+
+Track homepage visits with GA4 so site engagement can be measured.
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+Do not add a second paragraph explaining the "why" unless the user explicitly asks for a longer message.
