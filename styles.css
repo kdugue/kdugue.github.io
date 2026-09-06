@@ -248,6 +248,10 @@ ul.section-2 a[aria-current='page'] {
   margin: 0 0 1.15rem;
 }
 
+.writing-info .talk-title {
+  font-weight: 400;
+}
+
 .writing-info a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
