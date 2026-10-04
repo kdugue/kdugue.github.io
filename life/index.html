@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Enjoy Life Before it Ends &mdash; Kemet Dugue</title>
+    <title>Enjoy Life &mdash; Kemet Dugue</title>
     <link rel="stylesheet" type="text/css" href="../styles.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
@@ -26,7 +26,7 @@
 
     <article class="page-content life-countdown">
       <p class="post-kicker"><a href="../about/">&larr; About</a></p>
-      <h1 class="post-title">Enjoy Life Before it Ends</h1>
+      <h1 class="post-title">Enjoy Life</h1>
 
       <div class="countdown" id="countdown" role="timer">
         <div>
@@ -42,11 +42,39 @@
           <div class="countdown-label" id="minutes-label">minutes</div>
         </div>
       </div>
+
+      <figure class="life-pie" id="life-pie">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <path id="life-left" fill="#e4dfda"></path>
+          <path id="life-lived" fill="#d4b483"></path>
+        </svg>
+        <figcaption>
+          <div class="life-pie-legend">
+            <span class="life-pie-key">
+              <span class="life-swatch life-swatch-lived" aria-hidden="true"></span>
+              <span id="life-lived-label">lived</span>
+            </span>
+            <span class="life-pie-key">
+              <span class="life-swatch life-swatch-left" aria-hidden="true"></span>
+              <span id="life-left-label">left</span>
+            </span>
+          </div>
+        </figcaption>
+      </figure>
     </article>
 
     <script>
       (function () {
+        var start = new Date("1993-08-30T00:00:00-07:00");
         var end = new Date("2112-05-10T15:36:00-07:00");
+        var dayMs = 24 * 60 * 60 * 1000;
+        var pieDays = 250;
+        var pieBucket = -1;
+        var lifePie = document.getElementById("life-pie");
+        var livedPath = document.getElementById("life-lived");
+        var leftPath = document.getElementById("life-left");
+        var livedLabel = document.getElementById("life-lived-label");
+        var leftLabel = document.getElementById("life-left-label");
         var daysEl = document.getElementById("days");
         var hoursEl = document.getElementById("hours");
         var minutesEl = document.getElementById("minutes");
@@ -54,13 +82,126 @@
         var hoursLabel = document.getElementById("hours-label");
         var minutesLabel = document.getElementById("minutes-label");
         var countdown = document.getElementById("countdown");
+        var announcedMinute = -1;
 
         function label(n, singular, plural) {
           return n === 1 ? singular : plural;
         }
 
+        function pad(n) {
+          return n < 10 ? "0" + n : String(n);
+        }
+
+        function fullDisk(cx, cy, r) {
+          return (
+            "M " +
+            cx +
+            " " +
+            (cy - r) +
+            " A " +
+            r +
+            " " +
+            r +
+            " 0 1 1 " +
+            cx +
+            " " +
+            (cy + r) +
+            " A " +
+            r +
+            " " +
+            r +
+            " 0 1 1 " +
+            cx +
+            " " +
+            (cy - r) +
+            " Z"
+          );
+        }
+
+        function wedge(cx, cy, r, a0, a1) {
+          var large = a1 - a0 > Math.PI ? 1 : 0;
+          var x0 = cx + r * Math.cos(a0);
+          var y0 = cy + r * Math.sin(a0);
+          var x1 = cx + r * Math.cos(a1);
+          var y1 = cy + r * Math.sin(a1);
+          return (
+            "M " +
+            cx +
+            " " +
+            cy +
+            " L " +
+            x0.toFixed(3) +
+            " " +
+            y0.toFixed(3) +
+            " A " +
+            r +
+            " " +
+            r +
+            " 0 " +
+            large +
+            " 1 " +
+            x1.toFixed(3) +
+            " " +
+            y1.toFixed(3) +
+            " Z"
+          );
+        }
+
+        function setSlice(el, d) {
+          if (!d) {
+            el.setAttribute("hidden", "");
+            el.removeAttribute("d");
+            return;
+          }
+          el.removeAttribute("hidden");
+          el.setAttribute("d", d);
+        }
+
+        function updatePie(now) {
+          var totalDays = (end.getTime() - start.getTime()) / dayMs;
+          var livedDays = (now - start.getTime()) / dayMs;
+          if (livedDays < 0) livedDays = 0;
+          if (livedDays > totalDays) livedDays = totalDays;
+
+          var done = livedDays >= totalDays;
+          var bucket = done ? -2 : Math.floor(livedDays / pieDays);
+          if (bucket === pieBucket) return;
+          pieBucket = bucket;
+
+          var counted = done ? totalDays : bucket * pieDays;
+          var fraction = totalDays === 0 ? 1 : counted / totalDays;
+          var livedPct = Math.round(fraction * 100);
+          var leftPct = 100 - livedPct;
+          var cx = 50;
+          var cy = 50;
+          var r = 46;
+          var sweep = fraction * Math.PI * 2;
+          var base = -Math.PI / 2;
+
+          if (fraction <= 0) {
+            setSlice(livedPath, "");
+            setSlice(leftPath, fullDisk(cx, cy, r));
+          } else if (fraction >= 1) {
+            setSlice(livedPath, fullDisk(cx, cy, r));
+            setSlice(leftPath, "");
+          } else {
+            setSlice(leftPath, fullDisk(cx, cy, r));
+            setSlice(livedPath, wedge(cx, cy, r, base, base + sweep));
+          }
+
+          livedLabel.textContent = livedPct + "% lived";
+          leftLabel.textContent = leftPct + "% left";
+          lifePie.setAttribute(
+            "aria-label",
+            livedPct + " percent lived, " + leftPct + " percent left."
+          );
+        }
+
         function tick() {
-          var remaining = end.getTime() - Date.now();
+          var now = Date.now();
+          updatePie(now);
+
+          var remaining = end.getTime() - now;
           if (remaining < 0) remaining = 0;
 
           var totalMinutes = Math.floor(remaining / 60000);
@@ -69,29 +210,36 @@
           var minutes = totalMinutes % 60;
 
           daysEl.textContent = days.toLocaleString("en-US");
-          hoursEl.textContent = String(hours);
-          minutesEl.textContent = String(minutes);
+          hoursEl.textContent = pad(hours);
+          minutesEl.textContent = pad(minutes);
           daysLabel.textContent = label(days, "day", "days");
           hoursLabel.textContent = label(hours, "hour", "hours");
           minutesLabel.textContent = label(minutes, "minute", "minutes");
-          countdown.setAttribute(
-            "aria-label",
-            days +
-              " " +
-              label(days, "day", "days") +
-              ", " +
-              hours +
-              " " +
-              label(hours, "hour", "hours") +
-              ", " +
-              minutes +
-              " " +
-              label(minutes, "minute", "minutes")
-          );
+
+          if (minutes !== announcedMinute) {
+            announcedMinute = minutes;
+            countdown.setAttribute(
+              "aria-label",
+              days +
+                " " +
+                label(days, "day", "days") +
+                ", " +
+                hours +
+                " " +
+                label(hours, "hour", "hours") +
+                ", " +
+                minutes +
+                " " +
+                label(minutes, "minute", "minutes")
+            );
+          }
         }
 
         tick();
-        setInterval(tick, 1000);
+        setTimeout(function schedule() {
+          tick();
+          setTimeout(schedule, 1000 - (Date.now() % 1000));
+        }, 1000 - (Date.now() % 1000));
       })();
     </script>
   </body>

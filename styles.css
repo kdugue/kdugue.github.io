@@ -334,6 +334,51 @@ ul.section-2 a[aria-current='page'] {
   color: #5a7aa3;
 }
 
+.life-pie {
+  margin: 3.25rem 0 0;
+}
+
+.life-pie svg {
+  display: block;
+  width: 11rem;
+  height: 11rem;
+  margin: 0 auto;
+}
+
+.life-pie figcaption {
+  margin: 0;
+}
+
+.life-pie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.1rem;
+  font-size: 1rem;
+  color: #5a7aa3;
+}
+
+.life-pie-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.life-swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+}
+
+.life-swatch-lived {
+  background: #d4b483;
+}
+
+.life-swatch-left {
+  background: #e4dfda;
+}
+
 /* --- Writings (static pages) --- */
 .writings-tags-page .writings-lede {
   margin: 0 0 1.25rem;
