@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enjoy Life Before it Ends &mdash; Kemet Dugue</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="section-1">
+      <h1 class="header"><a href="../">Kemet Dugue</a></h1>
+    </div>
+
+    <div class="section-2">
+      <ul class="section-2">
+        <li><a href="../work/">Work</a></li>
+        <li><a href="../talks/">Talks</a></li>
+        <li><a href="../writings/">Writings</a></li>
+        <li><a href="../about/">About</a></li>
+      </ul>
+    </div>
+
+    <article class="page-content life-countdown">
+      <p class="post-kicker"><a href="../about/">&larr; About</a></p>
+      <h1 class="post-title">Enjoy Life Before it Ends</h1>
+
+      <div class="countdown" id="countdown" role="timer">
+        <div>
+          <div class="countdown-value" id="days">–</div>
+          <div class="countdown-label" id="days-label">days</div>
+        </div>
+        <div>
+          <div class="countdown-value" id="hours">–</div>
+          <div class="countdown-label" id="hours-label">hours</div>
+        </div>
+        <div>
+          <div class="countdown-value" id="minutes">–</div>
+          <div class="countdown-label" id="minutes-label">minutes</div>
+        </div>
+      </div>
+    </article>
+
+    <script>
+      (function () {
+        var end = new Date("2112-05-10T15:36:00-07:00");
+        var daysEl = document.getElementById("days");
+        var hoursEl = document.getElementById("hours");
+        var minutesEl = document.getElementById("minutes");
+        var daysLabel = document.getElementById("days-label");
+        var hoursLabel = document.getElementById("hours-label");
+        var minutesLabel = document.getElementById("minutes-label");
+        var countdown = document.getElementById("countdown");
+
+        function label(n, singular, plural) {
+          return n === 1 ? singular : plural;
+        }
+
+        function tick() {
+          var remaining = end.getTime() - Date.now();
+          if (remaining < 0) remaining = 0;
+
+          var totalMinutes = Math.floor(remaining / 60000);
+          var days = Math.floor(totalMinutes / 1440);
+          var hours = Math.floor((totalMinutes % 1440) / 60);
+          var minutes = totalMinutes % 60;
+
+          daysEl.textContent = days.toLocaleString("en-US");
+          hoursEl.textContent = String(hours);
+          minutesEl.textContent = String(minutes);
+          daysLabel.textContent = label(days, "day", "days");
+          hoursLabel.textContent = label(hours, "hour", "hours");
+          minutesLabel.textContent = label(minutes, "minute", "minutes");
+          countdown.setAttribute(
+            "aria-label",
+            days +
+              " " +
+              label(days, "day", "days") +
+              ", " +
+              hours +
+              " " +
+              label(hours, "hour", "hours") +
+              ", " +
+              minutes +
+              " " +
+              label(minutes, "minute", "minutes")
+          );
+        }
+
+        tick();
+        setInterval(tick, 1000);
+      })();
+    </script>
+  </body>
+</html>

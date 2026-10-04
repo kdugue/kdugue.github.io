@@ -305,6 +305,35 @@ ul.section-2 a[aria-current='page'] {
   margin-right: 0;
 }
 
+/* --- Life countdown --- */
+.life-countdown {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem 2.75rem;
+  margin-top: 2.5rem;
+}
+
+.countdown-value {
+  font-size: clamp(2.4rem, 8vw, 3.75rem);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #4472a8;
+}
+
+.countdown-label {
+  margin-top: 0.55rem;
+  font-size: 1rem;
+  color: #5a7aa3;
+}
+
 /* --- Writings (static pages) --- */
 .writings-tags-page .writings-lede {
   margin: 0 0 1.25rem;
