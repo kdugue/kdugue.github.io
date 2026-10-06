@@ -1,0 +1,26 @@
+---
+description: Preview this site once, after the requested changes are done
+alwaysApply: true
+---
+
+# Preview once
+
+Do not start a local server or open the browser after every edit or follow-up prompt.
+
+Make the requested changes first. Serve and check the site once, after that work is in place.
+
+## When to preview
+
+- One message with several changes: preview a single time at the end.
+- A short follow-up (copy, a link, layout): edit the files and stop. Do not serve again.
+- Preview when the user asks to see the site, or when a batch of changes is finished and there is something user-visible to check.
+
+## How
+
+From the repo root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Open the affected pages, then stop the server.

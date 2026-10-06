@@ -434,6 +434,11 @@ ul.section-2 a[aria-current='page'] {
   white-space: nowrap;
 }
 
+.writing-info .writings-item-note {
+  display: block;
+  margin: 0.35rem 0 0;
+}
+
 .writings-item-tags {
   display: block;
   margin-top: 0.35rem;
