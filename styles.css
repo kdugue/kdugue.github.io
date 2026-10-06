@@ -311,6 +311,10 @@ ul.section-2 a[aria-current='page'] {
   padding-top: 0.5rem;
 }
 
+.life-title-note {
+  white-space: nowrap;
+}
+
 .countdown {
   display: flex;
   flex-wrap: wrap;
