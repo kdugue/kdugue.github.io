@@ -204,6 +204,10 @@ body.work-page div.section-2 {
   text-underline-offset: 0.15em;
 }
 
+.project-title b {
+  font-weight: 700;
+}
+
 .project-container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
@@ -257,6 +261,10 @@ body.work-page div.section-2 {
 
 .project-detailed-description p {
   margin: 0 0 1rem;
+}
+
+.project-detailed-description p.photo-series {
+  margin-bottom: 0.15rem;
 }
 
 .project-detailed-description p:last-child {
