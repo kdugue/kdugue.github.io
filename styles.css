@@ -238,6 +238,10 @@ body.work-page div.section-2 {
   display: block;
 }
 
+.project-title-and-photo a.project-image-icon {
+  max-width: 16rem;
+}
+
 .project-title-and-photo a.project-image-frame {
   width: 100%;
   height: clamp(170px, 24vw, 220px);
