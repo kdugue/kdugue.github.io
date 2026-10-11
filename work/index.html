@@ -11,7 +11,7 @@
     />
   </head>
 
-  <body>
+  <body class="work-page">
     <div class="section-1">
       <h1 class="header"><a href="../">Kemet Dugue</a></h1>
     </div>
@@ -27,6 +27,32 @@
     </div>
 
     <div class="page-content">
+      <nav class="work-group-nav" aria-label="Work">
+        <div class="work-cluster">
+          <span class="work-cluster-label" id="work-companies">Companies</span>
+          <ul class="section-2" aria-labelledby="work-companies">
+            <li><a href="#uber" data-work-group="uber">Uber</a></li>
+            <li>
+              <a href="#microsoft" data-work-group="microsoft">Microsoft</a>
+            </li>
+            <li>
+              <a href="#selfmade" data-work-group="selfmade">SelfMade</a>
+            </li>
+          </ul>
+        </div>
+        <div class="work-cluster">
+          <span class="work-cluster-label" id="work-personal">Personal</span>
+          <ul class="section-2" aria-labelledby="work-personal">
+            <li>
+              <a href="#side-projects" data-work-group="side-projects"
+                >Side projects</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section id="uber" class="work-group">
       <h3 class="company-title">
         <i><u>Uber</u></i>
       </h3>
@@ -79,6 +105,9 @@
         </div>
       </div>
 
+      </section>
+
+      <section id="microsoft" class="work-group">
       <h3 class="company-title">
         <i><u>Microsoft</u></i>
       </h3>
@@ -192,6 +221,9 @@
         </div>
       </div>
 
+      </section>
+
+      <section id="selfmade" class="work-group">
       <h3 class="company-title">
         <i><u>SelfMade</u></i>
       </h3>
@@ -224,6 +256,33 @@
           </div>
         </div>
       </div>
+      </section>
+
+      <section id="side-projects" class="work-group">
+        <h3 class="company-title">
+          <i><u>Side projects</u></i>
+        </h3>
+
+        <div class="project-description">
+          <p class="project-title">
+            <u
+              ><a href="https://github.com/kdugue/shelf-app-prototype">Shelf</a></u
+            >
+          </p>
+
+          <div class="project-container">
+            <div class="project-detailed-description">
+              <p>
+                A suite of tools for minimizing and organizing files, folders,
+                and assets on a Mac. Shelf renames files, suggests folders, and
+                exports a Messages thread. Nothing changes until you confirm.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <script src="../assets/work.js"></script>
   </body>
 </html>

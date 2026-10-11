@@ -1,0 +1,27 @@
+---
+description: Keep page scripts in separate files
+alwaysApply: true
+---
+
+# Separate scripts
+
+Put page behavior in its own JavaScript file. Do not add inline `<script>` blocks to HTML.
+
+## Where
+
+- Site scripts live in `assets/`, named for the page (`assets/work.js`, `assets/analytics.js`).
+- Link the file from the page. Match the path depth of that page.
+
+```html
+<script src="../assets/work.js"></script>
+```
+
+## Avoid
+
+```html
+<script>
+  (function () {
+    // page behavior
+  })();
+</script>
+```

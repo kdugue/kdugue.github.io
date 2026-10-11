@@ -119,11 +119,43 @@ ul.section-2 > li {
   list-style: none;
 }
 
-ul.section-2 a[aria-current='page'] {
+ul.section-2 a[aria-current='page'],
+.work-group-nav a[aria-current='true'] {
   text-decoration: underline;
   text-decoration-color: rgba(68, 114, 168, 0.35);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
+}
+
+body.work-page div.section-2 {
+  margin-bottom: 0.35rem;
+}
+
+.work-group-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem 2.25rem;
+  margin: 0 0 2rem;
+}
+
+.work-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem 0.85rem;
+}
+
+.work-cluster-label {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #4472a8;
+}
+
+.work-cluster ul.section-2 {
+  gap: 0.65rem 1.15rem;
 }
 
 /* Inner pages: shared content column (Work, Talks, About) */
@@ -146,7 +178,8 @@ ul.section-2 a[aria-current='page'] {
   text-align: center;
 }
 
-.company-title:first-child {
+.company-title:first-child,
+.work-group > .company-title:first-child {
   margin-top: 0;
 }
 
