@@ -263,10 +263,6 @@ body.work-page div.section-2 {
   margin: 0 0 1rem;
 }
 
-.project-detailed-description p.photo-series {
-  margin-bottom: 0.15rem;
-}
-
 .project-detailed-description p:last-child {
   margin-bottom: 0;
 }
